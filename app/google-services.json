@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1098725810021",
+    "project_id": "tv-scheduling-application",
+    "storage_bucket": "tv-scheduling-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098725810021:android:333664986efa1979874b8c",
+        "android_client_info": {
+          "package_name": "com.example.trackervision"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0sZXNaBtdJIdekKQhclZ8IUyK2WU5dKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
