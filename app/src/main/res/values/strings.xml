@@ -18,6 +18,14 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="wrong_user">Is this not you? Click the button below to log out:</string>
+    <string name="schedule_view">My Schedule</string>
+    <string name="log_view">My Log</string>
+    <string name="add_episode">Add Episode</string>
+    <string name="view_schedule">View Schedule</string>
+    <string name="schedule_add">Please add the details of your show below:</string>
+    <string name="save">Save</string>
+    <string name="empty_schedule">No Episodes Currently Saved To Schedule</string>
+
 
 
     <string name="lorem_ipsum">

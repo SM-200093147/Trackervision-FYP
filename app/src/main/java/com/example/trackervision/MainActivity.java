@@ -45,4 +45,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    public void startScheduleViewActivity (View v) {
+        Intent i = new Intent(this, ScheduleViewActivity.class);
+        startActivity(i);
+
+    }
 }
