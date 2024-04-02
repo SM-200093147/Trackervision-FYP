@@ -66,9 +66,10 @@ public class SignUpActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(SignUpActivity.this, "Account Created Successfully",
                                             Toast.LENGTH_SHORT).show();
+                                    finish();
                                 } else {
                                     // If sign in fails, display a message to the user.
-                                    Toast.makeText(SignUpActivity.this, "Email invalid. Please try again.",
+                                    Toast.makeText(SignUpActivity.this, "Login details invalid. Please try again.",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
