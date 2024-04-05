@@ -28,8 +28,11 @@
     <string name="recommendations">Recommendations</string>
     <string name="trending">Trending</string>
     <string name="top_rated">All Time Top Rated</string>
-
-
+    <string name="airing_today">Airing Today</string>
+    <string name="airing_next_7">Airing Next 7 Days</string>
+    <string name="TMDB_Declaration">Trackervision uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB.</string>
+    <string name="search">Search</string>
+    <string name="search_results">Search Results For: </string>
 
 
     <string name="lorem_ipsum">

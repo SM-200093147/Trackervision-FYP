@@ -5,36 +5,32 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
 
 public class RecommendationsActivity extends AppCompatActivity {
     public static String baseURL="https://api.themoviedb.org";
     public static String language="en-uk";
     public static String apiKey="a07d8418569b36aba9e3ae4a58107505";
     public String topRatedCategory="top_rated";
-    public String popularCategory="popular";
+    public String trendingCategory="popular";
     public String airingTodayCategory="airing_today";
     public String airingNext7Days = "on_the_air";
+    public String  time_window = "day";
 
-    RecyclerView trendingRecyclerview;
-    LinearLayoutManager layoutManager;
-    recommendationsRecyclerAdapter recommendationsRecyclerAdapter;
-    List<TVShowResults.Result> airingTodayResults = new ArrayList<>();
+    RecyclerView allTimePopularRecyclerview, trendingRecyclerView, airingTodayRecyclerView, airingNext7DaysRecyclerView;
+    LinearLayoutManager allTimePopularLayoutManager, trendingLayoutManager, airingTodayLayoutManager, airingNext7DaysLayoutManager;
+    recommendationsRecyclerAdapter allTimePopularRecyclerAdapter, trendingRecyclerAdapter, airingTodayRecyclerAdapter, airingNext7DaysRecyclerAdapter;
+    List<TVShowResults.Result> airingTodayResults = new ArrayList<>(),trendingResults = new ArrayList<>(),airingInTheNext7DaysResults = new ArrayList<>(),allTimePopularResults = new ArrayList<>();
+
+
+
 
 
     @Override
@@ -42,25 +38,103 @@ public class RecommendationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommendations);
 
-        trendingRecyclerview = findViewById(R.id.trendingRecyclerView);
-        layoutManager = new LinearLayoutManager(this);
-        recommendationsRecyclerAdapter = new recommendationsRecyclerAdapter(airingTodayResults);
-        trendingRecyclerview.setLayoutManager(layoutManager);
-        trendingRecyclerview.setAdapter(recommendationsRecyclerAdapter);
+        allTimePopularLayoutManager = new LinearLayoutManager(this);
+        allTimePopularRecyclerview = findViewById(R.id.allTimePopularRecyclerView);
+        allTimePopularRecyclerAdapter = new recommendationsRecyclerAdapter(allTimePopularResults);
+        allTimePopularRecyclerview.setLayoutManager(allTimePopularLayoutManager);
+        allTimePopularRecyclerview.setAdapter(allTimePopularRecyclerAdapter);
+        fetchTopRatedShows();
 
-        fetchShows();
+        trendingLayoutManager = new LinearLayoutManager(this);
+        trendingRecyclerView = findViewById(R.id.trendingRecyclerView);
+        trendingRecyclerAdapter = new recommendationsRecyclerAdapter(trendingResults);
+        trendingRecyclerView.setLayoutManager(trendingLayoutManager);
+        trendingRecyclerView.setAdapter(trendingRecyclerAdapter);
+        fetchTrendingCategory();
+
+        airingTodayLayoutManager = new LinearLayoutManager(this);
+        airingTodayRecyclerView = findViewById(R.id.airingTodayRecyclerView);
+        airingTodayRecyclerAdapter = new recommendationsRecyclerAdapter(airingTodayResults);
+        airingTodayRecyclerView.setLayoutManager(airingTodayLayoutManager);
+        airingTodayRecyclerView.setAdapter(airingTodayRecyclerAdapter);
+        fetchAiringTodayCategory();
+
+        airingNext7DaysLayoutManager = new LinearLayoutManager(this);
+        airingNext7DaysRecyclerView = findViewById(R.id.airingNext7DaysRecyclerView);
+        airingNext7DaysRecyclerAdapter = new recommendationsRecyclerAdapter(airingInTheNext7DaysResults);
+        airingNext7DaysRecyclerView.setLayoutManager(airingNext7DaysLayoutManager);
+        airingNext7DaysRecyclerView.setAdapter(airingNext7DaysRecyclerAdapter);
+        fetchAiringNext7DaysCategory();
+
 
 
 
     }
 
-    private void fetchShows(){
+    private void fetchTopRatedShows(){
         retrofitInterface.getRetrofitClient().getTopRatedShows(topRatedCategory,apiKey,language).enqueue(new Callback<TVShowResults>() {
             @Override
             public void onResponse(Call<TVShowResults> call, Response<TVShowResults> response) {
                 if(response.isSuccessful()){
+                    allTimePopularResults.addAll(response.body().getResults());
+                    allTimePopularRecyclerAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TVShowResults> call, Throwable t) {
+                Toast.makeText(RecommendationsActivity.this, "API Call failed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
+
+    private void fetchTrendingCategory(){
+        retrofitInterface.getRetrofitClient().showTrending(time_window,apiKey,language).enqueue(new Callback<TVShowResults>() {
+            @Override
+            public void onResponse(Call<TVShowResults> call, Response<TVShowResults> response) {
+                if(response.isSuccessful()){
+                    trendingResults.addAll(response.body().getResults());
+                    trendingRecyclerAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TVShowResults> call, Throwable t) {
+                Toast.makeText(RecommendationsActivity.this, "API Call failed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
+
+    private void fetchAiringTodayCategory(){
+        retrofitInterface.getRetrofitClient().getTopRatedShows(airingTodayCategory,apiKey,language).enqueue(new Callback<TVShowResults>() {
+            @Override
+            public void onResponse(Call<TVShowResults> call, Response<TVShowResults> response) {
+                if(response.isSuccessful()){
                     airingTodayResults.addAll(response.body().getResults());
-                    recommendationsRecyclerAdapter.notifyDataSetChanged();
+                    airingTodayRecyclerAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TVShowResults> call, Throwable t) {
+                Toast.makeText(RecommendationsActivity.this, "API Call failed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
+
+    private void fetchAiringNext7DaysCategory(){
+        retrofitInterface.getRetrofitClient().getTopRatedShows(airingNext7Days,apiKey,language).enqueue(new Callback<TVShowResults>() {
+            @Override
+            public void onResponse(Call<TVShowResults> call, Response<TVShowResults> response) {
+                if(response.isSuccessful()){
+                    airingInTheNext7DaysResults.addAll(response.body().getResults());
+                    airingNext7DaysRecyclerAdapter.notifyDataSetChanged();
                 }
             }
 

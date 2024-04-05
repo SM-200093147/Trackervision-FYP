@@ -16,7 +16,14 @@ public interface tmdbInterface {
 
     @GET("3/search/tv")
     Call<TVShowResults> searchTVShows(
-            @Query("showName") String showName,
+            @Query("query") String showName,
+            @Query("api_key") String apiKey,
+            @Query("language") String language
+    );
+
+    @GET("3/trending/tv/{time_window}")
+    Call<TVShowResults> showTrending(
+            @Path("time_window") String time_window,
             @Query("api_key") String apiKey,
             @Query("language") String language
     );
