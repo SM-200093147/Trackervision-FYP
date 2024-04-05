@@ -25,6 +25,10 @@
     <string name="schedule_add">Please add the details of your show below:</string>
     <string name="save">Save</string>
     <string name="empty_schedule">No Episodes Currently Saved To Schedule</string>
+    <string name="recommendations">Recommendations</string>
+    <string name="trending">Trending</string>
+    <string name="top_rated">All Time Top Rated</string>
+
 
 
 

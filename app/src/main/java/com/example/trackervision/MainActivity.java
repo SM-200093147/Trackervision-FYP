@@ -50,4 +50,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
 
     }
+
+    public void startRecommendationsActivity (View v) {
+        Intent i = new Intent(this, RecommendationsActivity.class);
+        startActivity(i);
+
+    }
 }
