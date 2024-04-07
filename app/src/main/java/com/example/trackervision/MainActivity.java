@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -61,8 +63,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void searchResultsActivity (View v){
-        Intent i = new Intent (this, SearchResultsActivity.class );
-        i.putExtra ( "searchResults", searchEditText.getText().toString() );
-        startActivity(i);
+        if (TextUtils.isEmpty(searchEditText.getText())){
+            Toast.makeText(this, "Please enter a show name before searching.", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Intent i = new Intent(this, SearchResultsActivity.class);
+            i.putExtra("searchResults", searchEditText.getText().toString());
+            startActivity(i);
+        }
     }
 }

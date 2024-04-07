@@ -41,7 +41,7 @@
             android:id="@+id/ratingText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Average Rating: "
+            android:text="@string/average_rating"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/starIcon"
@@ -60,7 +60,7 @@
 
         <TextView
             android:id="@+id/recommendationOverviewText"
-            android:layout_width="250dp"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginBottom="12dp"

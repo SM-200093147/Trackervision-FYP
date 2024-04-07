@@ -33,6 +33,22 @@
     <string name="TMDB_Declaration">Trackervision uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB.</string>
     <string name="search">Search</string>
     <string name="search_results">Search Results For: </string>
+    <string name="no_results">No Results Found</string>
+    <string name="add_to_watchlist">Add To Watchlist</string>
+    <string name="add_to_Log">Add To Log</string>
+    <string name="overview">Overview</string>
+    <string name="origin_country">Country Of Origin</string>
+    <string name="original_language">Original Language</string>
+    <string name="original_name">Original Name</string>
+    <string name="first_aired">First Aired On</string>
+    <string name="average_rating">Average Rating: </string>
+
+
+
+
+
+
+
 
 
     <string name="lorem_ipsum">

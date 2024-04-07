@@ -15,17 +15,19 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 public class recommendationsRecyclerAdapter extends RecyclerView.Adapter<recommendationsRecyclerAdapter.RecommendationsViewHolder> {
+    private final RecyclerViewInterface recyclerViewInterface;
     private List<TVShowResults.Result> showsList;
 
-    public recommendationsRecyclerAdapter(List<TVShowResults.Result> showsList) {
+    public recommendationsRecyclerAdapter(List<TVShowResults.Result> showsList, RecyclerViewInterface recyclerViewInterface) {
         this.showsList = showsList;
+        this.recyclerViewInterface = recyclerViewInterface;
     }
 
     @NonNull
     @Override
     public RecommendationsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recommendations_entry,parent,false);
-        return new RecommendationsViewHolder(v);
+        return new RecommendationsViewHolder(v, recyclerViewInterface);
     }
 
     @Override
@@ -48,13 +50,25 @@ public class recommendationsRecyclerAdapter extends RecyclerView.Adapter<recomme
         TextView showRating;
         TextView showOverview;
         ImageView showPoster;
-        public RecommendationsViewHolder(@NonNull View itemView) {
+        public RecommendationsViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
 
             showName = itemView.findViewById(R.id.recommendationCardShowName);
             showRating = itemView.findViewById(R.id.recommendationAverageRating);
             showOverview = itemView.findViewById(R.id.recommendationOverviewText);
             showPoster = itemView.findViewById(R.id.imageView3);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(recyclerViewInterface != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onRecyclerEntryClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }

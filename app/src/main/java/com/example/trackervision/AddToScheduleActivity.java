@@ -92,7 +92,8 @@ public class AddToScheduleActivity extends AppCompatActivity {
     }
 
     public void writeNewScheduleEntry() {
-        uploadScheduleInfo newScheduleActivity = new uploadScheduleInfo(showNameText.getText().toString(),
+        uploadScheduleInfo newScheduleActivity = new uploadScheduleInfo(
+                showNameText.getText().toString(),
                 seasonNumberText.getText().toString(),
                 episodeNumberText.getText().toString(),
                 dateText.getText().toString(),
