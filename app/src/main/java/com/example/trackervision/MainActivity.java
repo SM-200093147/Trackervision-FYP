@@ -72,4 +72,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         }
     }
+    public void startWatchlistActivity (View v){
+        Intent i = new Intent(this, WatchlistActivity.class);
+        startActivity(i);
+    }
 }

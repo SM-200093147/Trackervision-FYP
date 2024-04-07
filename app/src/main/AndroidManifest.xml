@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Material3.DayNight"
         tools:targetApi="31">
         <activity
+            android:name=".LogDateActivity"
+            android:exported="false" />
+        <activity
             android:name=".SearchResultsActivity"
             android:exported="false" />
         <activity
