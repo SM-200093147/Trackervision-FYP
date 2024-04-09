@@ -23,7 +23,7 @@ public class SearchResultsActivity extends AppCompatActivity implements  Recycle
     public static String apiKey="a07d8418569b36aba9e3ae4a58107505";
     RecyclerView searchResultsRecyclerView;
     LinearLayoutManager searchResultsLayoutManager;
-    recommendationsRecyclerAdapter searchResultsRecyclerAdapter;
+    showInfoRecyclerAdapter searchResultsRecyclerAdapter;
     List<TVShowResults.Result> searchResultsList = new ArrayList<>();
     String searchResults;
     TextView searchResultsTextView, noResultsTextView;
@@ -41,7 +41,7 @@ public class SearchResultsActivity extends AppCompatActivity implements  Recycle
         searchResultsTextView.setText(searchResults);
         searchResultsLayoutManager = new LinearLayoutManager(this);
         searchResultsRecyclerView = findViewById(R.id.searchRecyclerView);
-        searchResultsRecyclerAdapter = new recommendationsRecyclerAdapter(searchResultsList, this);
+        searchResultsRecyclerAdapter = new showInfoRecyclerAdapter(searchResultsList, this);
         searchResultsRecyclerView.setLayoutManager(searchResultsLayoutManager);
         searchResultsRecyclerView.setAdapter(searchResultsRecyclerAdapter);
         fetchSearchResults();

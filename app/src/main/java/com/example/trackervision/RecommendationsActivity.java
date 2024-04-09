@@ -26,7 +26,7 @@ public class RecommendationsActivity extends AppCompatActivity implements Recycl
 
     RecyclerView allTimePopularRecyclerview, trendingRecyclerView, airingTodayRecyclerView, airingNext7DaysRecyclerView;
     LinearLayoutManager allTimePopularLayoutManager, trendingLayoutManager, airingTodayLayoutManager, airingNext7DaysLayoutManager;
-    recommendationsRecyclerAdapter allTimePopularRecyclerAdapter, trendingRecyclerAdapter, airingTodayRecyclerAdapter, airingNext7DaysRecyclerAdapter;
+    showInfoRecyclerAdapter allTimePopularRecyclerAdapter, trendingRecyclerAdapter, airingTodayRecyclerAdapter, airingNext7DaysRecyclerAdapter;
     List<TVShowResults.Result> airingTodayResults = new ArrayList<>(),trendingResults = new ArrayList<>(),airingInTheNext7DaysResults = new ArrayList<>(),allTimePopularResults = new ArrayList<>();
 
 
@@ -40,28 +40,28 @@ public class RecommendationsActivity extends AppCompatActivity implements Recycl
 
         allTimePopularLayoutManager = new LinearLayoutManager(this);
         allTimePopularRecyclerview = findViewById(R.id.allTimePopularRecyclerView);
-        allTimePopularRecyclerAdapter = new recommendationsRecyclerAdapter(allTimePopularResults,this);
+        allTimePopularRecyclerAdapter = new showInfoRecyclerAdapter(allTimePopularResults,this);
         allTimePopularRecyclerview.setLayoutManager(allTimePopularLayoutManager);
         allTimePopularRecyclerview.setAdapter(allTimePopularRecyclerAdapter);
         fetchTopRatedShows();
 
         trendingLayoutManager = new LinearLayoutManager(this);
         trendingRecyclerView = findViewById(R.id.trendingRecyclerView);
-        trendingRecyclerAdapter = new recommendationsRecyclerAdapter(trendingResults,this);
+        trendingRecyclerAdapter = new showInfoRecyclerAdapter(trendingResults,this);
         trendingRecyclerView.setLayoutManager(trendingLayoutManager);
         trendingRecyclerView.setAdapter(trendingRecyclerAdapter);
         fetchTrendingCategory();
 
         airingTodayLayoutManager = new LinearLayoutManager(this);
         airingTodayRecyclerView = findViewById(R.id.airingTodayRecyclerView);
-        airingTodayRecyclerAdapter = new recommendationsRecyclerAdapter(airingTodayResults,this);
+        airingTodayRecyclerAdapter = new showInfoRecyclerAdapter(airingTodayResults,this);
         airingTodayRecyclerView.setLayoutManager(airingTodayLayoutManager);
         airingTodayRecyclerView.setAdapter(airingTodayRecyclerAdapter);
         fetchAiringTodayCategory();
 
         airingNext7DaysLayoutManager = new LinearLayoutManager(this);
         airingNext7DaysRecyclerView = findViewById(R.id.airingNext7DaysRecyclerView);
-        airingNext7DaysRecyclerAdapter = new recommendationsRecyclerAdapter(airingInTheNext7DaysResults,this);
+        airingNext7DaysRecyclerAdapter = new showInfoRecyclerAdapter(airingInTheNext7DaysResults,this);
         airingNext7DaysRecyclerView.setLayoutManager(airingNext7DaysLayoutManager);
         airingNext7DaysRecyclerView.setAdapter(airingNext7DaysRecyclerAdapter);
         fetchAiringNext7DaysCategory();

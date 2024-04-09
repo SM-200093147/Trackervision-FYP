@@ -11,14 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import java.text.DecimalFormat;
 import java.util.List;
 
-public class recommendationsRecyclerAdapter extends RecyclerView.Adapter<recommendationsRecyclerAdapter.RecommendationsViewHolder> {
+public class showInfoRecyclerAdapter extends RecyclerView.Adapter<showInfoRecyclerAdapter.RecommendationsViewHolder> {
     private final RecyclerViewInterface recyclerViewInterface;
     private List<TVShowResults.Result> showsList;
 
-    public recommendationsRecyclerAdapter(List<TVShowResults.Result> showsList, RecyclerViewInterface recyclerViewInterface) {
+    public showInfoRecyclerAdapter(List<TVShowResults.Result> showsList, RecyclerViewInterface recyclerViewInterface) {
         this.showsList = showsList;
         this.recyclerViewInterface = recyclerViewInterface;
     }
