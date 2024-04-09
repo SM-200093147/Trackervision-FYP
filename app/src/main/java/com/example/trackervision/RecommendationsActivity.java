@@ -16,7 +16,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RecommendationsActivity extends AppCompatActivity implements RecyclerViewInterface{
-    public static String baseURL="https://api.themoviedb.org";
     public static String language="en-uk";
     public static String apiKey="a07d8418569b36aba9e3ae4a58107505";
     public String topRatedCategory="top_rated";
