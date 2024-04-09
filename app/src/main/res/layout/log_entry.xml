@@ -17,7 +17,7 @@
 
 
         <TextView
-            android:id="@+id/watchlistCardShowName"
+            android:id="@+id/logCardShowName"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -31,17 +31,18 @@
             app:layout_constraintVertical_bias="0.5" />
 
         <ImageView
-            android:id="@+id/deleteWatchlistEvent"
+            android:id="@+id/deleteLogEvent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/textView8"
-            app:layout_constraintStart_toEndOf="@+id/watchlistCardShowName"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/logCardShowName"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintVertical_bias="0.163"
             app:srcCompat="@android:drawable/ic_menu_delete" />
 
         <ImageView
-            android:id="@+id/watchlistCardPoster"
+            android:id="@+id/logCardPoster"
             android:layout_width="300px"
             android:layout_height="450px"
             android:layout_marginTop="10dp"
@@ -56,50 +57,26 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/average_rating"
+            android:text="@string/date_completed"
             android:textColor="@color/white"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/watchlistFirstAired"
-            app:layout_constraintStart_toStartOf="@+id/watchlistCardShowName"
-            app:layout_constraintTop_toBottomOf="@+id/watchlistCardShowName"
+            app:layout_constraintBottom_toTopOf="@+id/logCardDateCompleted"
+            app:layout_constraintStart_toStartOf="@+id/logCardShowName"
+            app:layout_constraintTop_toBottomOf="@+id/logCardShowName"
             app:layout_constraintVertical_bias="0.5" />
 
 
         <TextView
-            android:id="@+id/watchlistFirstAired"
+            android:id="@+id/logCardDateCompleted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView8"
-            app:layout_constraintVertical_bias="0.5" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="First Aired: "
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/textView8"
             app:layout_constraintVertical_bias="0.5" />
-
-        <TextView
-            android:id="@+id/watchlistCardAverageRating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="1"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView8"
-            app:layout_constraintStart_toEndOf="@+id/textView8"
-            app:layout_constraintTop_toTopOf="@+id/textView8" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -21,7 +21,6 @@
     <string name="schedule_view">My Schedule</string>
     <string name="log_view">My Log</string>
     <string name="watchlist_view">My Watchlist</string>
-
     <string name="add_episode">Add Episode</string>
     <string name="view_schedule">View Schedule</string>
     <string name="schedule_add">Please add the details of your show below:</string>
@@ -44,7 +43,10 @@
     <string name="original_name">Original Name</string>
     <string name="first_aired">First Aired On</string>
     <string name="average_rating">Average Rating: </string>
-    <string name="empty_watchlist">No Shows Currently Saved To Watchlist.</string>
+    <string name="empty_watchlist">No Shows Currently Saved To Watchlist</string>
+    <string name="empty_log">No Shows Currently Saved To Log</string>
+    <string name="date_completed">Date Completed:</string>
+
 
 
 

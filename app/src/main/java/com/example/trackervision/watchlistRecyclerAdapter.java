@@ -84,8 +84,7 @@ public class watchlistRecyclerAdapter extends RecyclerView.Adapter<watchlistRecy
             showAverageRating = itemView.findViewById(R.id.watchlistCardAverageRating);
             showFirstAired = itemView.findViewById(R.id.watchlistFirstAired);
             showPoster = itemView.findViewById(R.id.watchlistCardPoster);
-
-            deleteEntry = itemView.findViewById(R.id.deleteScheduleEvent);
+            deleteEntry = itemView.findViewById(R.id.deleteWatchlistEvent);
         }
     }
 }

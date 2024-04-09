@@ -34,7 +34,7 @@ public class recommendationsRecyclerAdapter extends RecyclerView.Adapter<recomme
     public void onBindViewHolder(@NonNull RecommendationsViewHolder holder, int position) {
         holder.showName.setText(showsList.get(position).getName());
         holder.showOverview.setText(showsList.get(position).getOverview());
-        holder.showRating.setText((String.format("%.1f",showsList.get(position).getVoteAverage())));
+        holder.showRating.setText((String.format(" "+"%.1f",showsList.get(position).getVoteAverage())));
         String posterURL = "https://image.tmdb.org/t/p/w500/"+showsList.get(position).getPosterPath();
         Glide.with(holder.itemView.getContext()).load(posterURL).into(holder.showPoster);
 

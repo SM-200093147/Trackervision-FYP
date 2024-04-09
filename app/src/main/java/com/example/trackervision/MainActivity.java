@@ -76,4 +76,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, WatchlistActivity.class);
         startActivity(i);
     }
+
+    public void startMyLogActivity (View v){
+        Intent i = new Intent(this, MyLogActivity.class);
+        startActivity(i);
+    }
 }
